@@ -30,7 +30,6 @@ const ViewSubscription = () => {
   // Fetch immediately for default user 1
   useEffect(() => {
     fetchSubscription(userId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSearch = (e) => {
