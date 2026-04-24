@@ -6,14 +6,13 @@ const CreateSubscription = () => {
   const { planId } = useParams();
   const navigate = useNavigate();
   
-  const [userId, setUserId] = useState(1); // Hardcoded for assessment simplicity
+  const [userId, setUserId] = useState(1);
   const [startDate, setStartDate] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Set default start date to today
     const today = new Date().toISOString().split('T')[0];
     setStartDate(today);
   }, []);
@@ -35,7 +34,6 @@ const CreateSubscription = () => {
       setTimeout(() => navigate('/my-subscription'), 2000);
     } catch (err) {
       if (err.response && err.response.data && err.response.data.errors) {
-        // Format Yii2 validation errors
         const errorMessages = Object.values(err.response.data.errors).flat().join(', ');
         setError(errorMessages);
       } else {
